@@ -1,0 +1,109 @@
+/* CSS declarations go here */
+body,html{ /* fix bug : set height to 100% of browser window */
+ height:100%;
+}
+
+#wrapper{  /* main wrapper -> google font and background */
+    font-family: 'Handlee', cursive;
+    font-size:3em;
+    text-align:center;
+    overflow-x:hidden;
+    background: rgb(252,252,252);
+    background: -moz-linear-gradient(top,  rgba(252,252,252,1) 13%, rgba(175,240,254,1) 18%, rgba(2,29,46,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(13%,rgba(252,252,252,1)), color-stop(18%,rgba(175,240,254,1)), color-stop(100%,rgba(2,29,46,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 13%,rgba(175,240,254,1) 18%,rgba(2,29,46,1) 100%);
+    background: -o-linear-gradient(top,  rgba(252,252,252,1) 13%,rgba(175,240,254,1) 18%,rgba(2,29,46,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(252,252,252,1) 13%,rgba(175,240,254,1) 18%,rgba(2,29,46,1) 100%);
+    background: linear-gradient(to bottom,  rgba(252,252,252,1) 13%,rgba(175,240,254,1) 18%,rgba(2,29,46,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#021d2e',GradientType=0 );
+}
+
+
+/* parts of website */
+
+section{ /* each section is 1000px */
+    height:1000px;
+    width:100%;
+    position:relative; /* each section is referent -> easy to set position */
+    overflow:hidden;
+}
+
+
+
+/* ITEMS */
+#diver{
+    position:fixed;
+    width:117px;
+    height:165px;
+    left:50%;
+    margin:-75px 0 0 -25px;
+    background: url('https://dl.dropbox.com/u/2044943/dev/img/20121117_vertical_scroll/diver.png');
+    z-index:4;
+    top:50%;
+    -webkit-animation-name: diverSwim;
+    -webkit-animation-duration: .8s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: steps(7, start);
+}
+
+/* FISHES */
+
+/* fish basic properties */
+.fish1,.fish2{
+  width:91px;
+  height:71px;
+  margin-left:-100px;
+  position:relative;
+  -webkit-transform-origin:center center;
+  background:url('https://dl.dropbox.com/u/2044943/dev/img/20121117_vertical_scroll/fish1.png');
+}
+
+/* fish 1 
+   from right to left 
+   anims setting
+*/
+.fish1{
+  -webkit-animation-name: fish1,movefish;
+  -webkit-animation-duration: .3s,16s;
+  -webkit-animation-iteration-count:infinite,infinite;
+  -webkit-animation-direction: alternate,normal;
+  -webkit-animation-timing-function: steps(3, start),linear;
+}
+/* fish 2 
+   from left to right 
+   anims setting
+*/
+.fish2{
+  -webkit-transform: scaleX(-1); /* reverse fish */
+  -webkit-animation-name: fish1,movefish2;
+  -webkit-animation-duration: .3s,16s;
+  -webkit-animation-iteration-count:infinite,infinite;
+  -webkit-animation-direction: alternate,normal;
+  -webkit-animation-timing-function: steps(3, start),linear;
+}
+
+@-webkit-keyframes diverSwim{
+    from{background-position:0px 0px;}
+    to{background-position:824px 0px;}
+}
+@-webkit-keyframes fish1{
+    from{background-position:0px 0px;}
+    to{background-position:273px 0px;}
+}
+/* fish 1 
+   from right to left 
+   anim
+*/
+@-webkit-keyframes movefish {
+    0% {margin-left: 3000px;}
+    100% {margin-left: -1000px;}
+}
+/* fish 2 
+   from left to right 
+   anims
+*/
+@-webkit-keyframes movefish2 {
+    0% {margin-left: -1000px;}
+    100% {margin-left: 3000px;}
+}
